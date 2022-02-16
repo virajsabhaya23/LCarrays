@@ -1,27 +1,37 @@
+package LCarrays;
+
 public class MergeSortedArrays {
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
-        int[] nums3 = new int[m+n];
-        int i=0,j=0,k=0;
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+        m--;
+        n--;
         
-        while(i<m && j<n){
-            if(nums1[i] < nums2[j]){
-                nums3[k++] = nums1[i++];
+        int index = nums1.length-1;
+        
+        while( index >= 0){
+            if(m < 0){
+                nums1[index] = nums2[n--];
+            }
+            else if(n < 0){
+                nums1[index] = nums1[m--];
             }
             else{
-                nums3[k++] = nums2[j++];
+                if(nums1[m] > nums2[n]){
+                    nums1[index] = nums1[m--];
+                }
+                else{
+                    nums1[index] = nums2[n--];
+                }
             }
-        }
-        
-        while(i < m){
-            nums3[k++] = nums1[i++];
-        }
-        while(j < n){
-            nums3[k++] = nums2[j++];
+            index--;
         }
     }
     public static void main(String[] args) {
-        int[] nums1 = {1,}
-        merge(nums1, 3, nums2, 3)
-        System.out.println(nums3);
+        int[] nums1 = {1,2,3,0,0,0};
+        int[] nums2 = {2,5,6};
+        merge(nums1, 3, nums2, 3);
+        
+        for(int i = 0; i < nums1.length; i++){
+            System.out.print(nums1[i] + " ");
+        }
     }
 }

@@ -1,6 +1,6 @@
 package LCarrays;
 
-public class findMaxConsecuteiveOnes{
+public class MaxConsecuteiveOnes{
     public static int findMaxConsecuteiveOnes(int[] nums){
         
         int count = 0;

@@ -1,4 +1,4 @@
-package LeetCode.Arrays101;
+package LCarrays;
 
 public class FNumWEvenDigits {
     
